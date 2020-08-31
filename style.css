@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font: 500 13px arial, sans-serif;
+}
+
+.container {
+    background: #333;
+    padding: 10px;
+    height: 400px;
+    width: 50%;
+    margin: 50px auto;
+    color: #fff;
+}
+
+h1,p {
+    width: 400px;
+    margin: 0 auto;
+}
+
+h1,p, h1::before {
+    transition: 0.4s;
+}
+
+h1 {
+    position: relative;
+    font-weight: 500;
+    font-size: 15px;
+    color: #13948f;
+    cursor: pointer;
+}
+
+h1:first-child {
+    margin-top: 100px;
+}
+
+h1:not(:first-child) {
+    padding-top: 12px;
+    border-top: 1px solid #e9ebed;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 5px;
+    margin: 6px 0 0 -16px;
+    background: url('./assets/blue-arrow.svg');
+    transform: rotate(-90deg);
+}
+
+h1.open::before {
+    transform: none;
+}
+
+h1.open ~ h1 {
+    transform: translateY(24px);
+}
+
+p {
+    opacity: 0;
+    pointer-events: none;
+}
+
+h1.open + p {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(8px);
+}
+
